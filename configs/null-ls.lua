@@ -8,7 +8,7 @@ local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
 
 local sources = {
-  formatting.prettier,
+  formatting.prettier.with { filetypes = { "html", "markdown", "css" } },
   formatting.gofumpt,
   formatting.goimports_reviser,
   formatting.golines,

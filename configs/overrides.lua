@@ -3,6 +3,7 @@ local M = {}
 M.nvimtree = {
   git = {
     enable = true,
+    timeout = 800,
   },
   renderer = {
     highlight_git = true,

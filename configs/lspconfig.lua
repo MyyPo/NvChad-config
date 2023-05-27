@@ -10,6 +10,11 @@ lspconfig.gopls.setup {
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  handlers = {
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = false,
+    }),
+  },
   settings = {
     gopls = {
       completeUnimported = true,
@@ -28,9 +33,4 @@ lspconfig.gopls.setup {
       },
     },
   },
-}
-
-lspconfig.tsserver.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
 }
