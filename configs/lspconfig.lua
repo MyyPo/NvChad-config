@@ -34,3 +34,13 @@ lspconfig.gopls.setup {
     },
   },
 }
+
+lspconfig.tsserver.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  handlers = {
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+      virtual_text = false,
+    }),
+  },
+}

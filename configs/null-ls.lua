@@ -8,7 +8,7 @@ local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
 
 local sources = {
-  formatting.prettier.with { filetypes = { "html", "markdown", "css" } },
+  formatting.prettier,
   formatting.gofumpt,
   formatting.goimports_reviser,
   formatting.golines,
@@ -31,7 +31,6 @@ local on_attach = function(client, bufnr)
 end
 
 null_ls.setup {
-  debug = true,
   sources = sources,
   on_attach = on_attach,
 }
